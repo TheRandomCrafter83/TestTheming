@@ -10,18 +10,16 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.*
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.tooling.preview.Preview
 import com.coderzf1.testtheming.ui.theme.CustomComposeTheme
-import com.coderzf1.testtheming.ui.theme.Pink40
 import com.coderzf1.testtheming.ui.theme.Purple40
-import com.coderzf1.testtheming.ui.theme.PurpleGrey40
 import com.coderzf1.testtheming.ui.theme.TestThemingTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,9 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var testColor by remember { mutableStateOf(Color(Purple40.toArgb()))}
-            TestThemingTheme(customComposeTheme = CustomComposeTheme(
-                primaryColor = testColor)
-            ) {
+            TestThemingTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -44,7 +40,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Button(onClick = {
-                            testColor = Color.Green
+                            //testColor = Color.Green
                         }) {
                             Text(text = "Click Me")
                         }
@@ -56,3 +52,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/*
+(customComposeTheme = CustomComposeTheme(
+primaryColor = testColor)
+)*/
